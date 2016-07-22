@@ -1,5 +1,4 @@
 <?php 
-// No direct access
 defined('_JEXEC') or die; 
 ?>
 
@@ -12,12 +11,12 @@ defined('_JEXEC') or die;
 	</div>
 
 <?php elseif($gwt_module==1):?>
+<?php $pst_style = "display:block background:".$pst_bckcolor."; text-align:".$pst_align."; color:".$pst_fontcolor."; font-family:'Roboto Condensed', sans-serif; font-size:0.8rem;"; ?>
 
-	<div id="pst-container" style="width:100%;">
-	  <div style="background:<?php echo $pst_bckcolor; ?>; font-style:Roboto; color:<?php echo $pst_fontcolor; ?>; text-align:<?php echo $pst_align; ?>;">
-	    <div style="font-size:1rem;"><b>Philippine Standard Time</b></div>
-	    <div style="font-size:0.875rem;">
-	      <span id="pst-date"></span>
+	<div id="pst-container" style="<?php echo $pst_style; ?>">
+	  <div>
+	    <div>Philippine Standard Time</div>
+	    <div>
 	      <span id="pst-time"></span>
 	    </div>
 	  </div>
@@ -32,8 +31,7 @@ defined('_JEXEC') or die;
 	}(document, 'gwt-pst'));
 
 	var gwtpstReady = function(){
-	  var otherFormat = 'dddd, mmmm dd, yyyy h:mm:ss TT';
-	  var firstPst = new gwtpstTime('pst-date', {format: otherFormat});
+	  new gwtpstTime('pst-time');
 	}
 	</script>
 
